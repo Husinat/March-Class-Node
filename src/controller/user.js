@@ -205,18 +205,7 @@ const login = async (req, res) => {
       return res
         .status(400)
         .json({ status: false, message: "Invalid Credential" });
-    }
-
-
-    // CHECKING IF OTP IS VERIFIFIED BEFORE PROCEEDING
-  if (!existingUser.isVerify){
-   return res.status(400).json({
-      status: false,
-      message: "Account not verified. Please verify your email."
-   });
-}
-
-    
+    }  
 
 
     const verifyPassword = await bcrypt.compare(
@@ -230,6 +219,17 @@ const login = async (req, res) => {
         .json({ status: false, message: "Invalid Credential" });
     }
     
+
+
+     // CHECKING IF OTP IS VERIFIFIED BEFORE PROCEEDING
+  if (!existingUser.isVerify){
+   return res.status(400).json({
+      status: false,
+      message: "Account not verified. Please verify your email."
+   });
+}
+
+
       const token = jwt.sign({userId: existingUser._id}, envObj.jwtSecretKey, {expiresIn: envObj.jwtExpires})
 
     res.status(200).json({ status: true, message: "Login Succefully", token });
