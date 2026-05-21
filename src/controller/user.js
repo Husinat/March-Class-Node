@@ -45,7 +45,7 @@ const register = async (req, res) => {
 
     
     // GENERATING OTP FOR USER VERIFICATION
-    const otp = Math.floor(10000 + Math.random() * 900000);
+    const otp = Math.floor(100000 + Math.random() * 900000);
     console.log("OTP:", otp)
     
 
@@ -100,7 +100,7 @@ const verifyOtp = async (req, res) => {
   }
 
   console.log("DB OTP:", user.verificationOtp);
-console.log("INPUT OTP:", otp);
+  console.log("INPUT OTP:", otp);
 
 
 
@@ -140,7 +140,7 @@ const resendOtp =  async (req, res) => {
 
   try {
      const { email } = req.body;
- const user =  await User.findOne({ email })
+     const user =  await User.findOne({ email })
 
     if (!user){
      return res.status(400).json({status: false,message: "User not found"
@@ -154,7 +154,9 @@ const resendOtp =  async (req, res) => {
    });
 }
 
-const newOtp = Math.floor(10000 + Math.random() * 900000);
+const newOtp = Math.floor(100000 + Math.random() * 900000);
+console.log("New Otp:", newotp);
+
 user.verificationOtp = newOtp;
 await user.save();
 await sendEmailOtp(user.name, user.email, newOtp);
