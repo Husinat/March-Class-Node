@@ -14,7 +14,7 @@ app.use(express.json());
 
 app.use(
   cors({
-   origin: "http://localhost:5173",
+   origin: "http://localhost:5173/",
   }),
 );
 
@@ -43,3 +43,5 @@ verifyTransport(); // Call the function to verify the transporter when the serve
 app.listen(port, () => {
   console.log(`Hello our server is running on port:${port}`);
 });
+
+

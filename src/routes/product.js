@@ -22,3 +22,8 @@ router.patch("/:id", updateProduct);
 router.delete("/:id", authMiddleWare, deleteProduct)
 
 module.exports = router;
+
+
+
+
+
