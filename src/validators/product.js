@@ -41,11 +41,11 @@ const addProductValidator = [
         .withMessage("Invalid category"),
 
     // Image
-    body('image')
-        .notEmpty()
-        .withMessage("Image URL is required")
-        .isURL()
-        .withMessage("Image must be a valid URL")
+    // body('image')
+    //     .notEmpty()
+    //     .withMessage("Image URL is required")
+    //     .isURL()
+    //     .withMessage("Image must be a valid URL")
 ];
 
 module.exports = { addProductValidator };

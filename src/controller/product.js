@@ -18,7 +18,7 @@ const addProduct = async (req, res) => {
     try {
       const {title, description, price, category, image} = req.body;
       // const { title, description, price, category, image } = req.body;
-      console.log(req.file);
+      console.log(req.file, 'i think is here');
       
 
         // if (!title || !description || !price || !category || !image) {
@@ -68,8 +68,6 @@ const addProduct = async (req, res) => {
 };
 
 
-
-
 // GETTING ALL PRODUCTS (R)
 const getAllProduct = async (req, res) => {
     try {
@@ -87,9 +85,6 @@ const getAllProduct = async (req, res) => {
         
     }
 };
-
-
-
 
 // GETTING SINGLE PRODUCT
 const getSingleProduct = async (req, res) => {
